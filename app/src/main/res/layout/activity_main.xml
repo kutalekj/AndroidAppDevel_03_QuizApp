@@ -19,7 +19,7 @@
         android:textColor="@color/white"
         android:layout_marginBottom="20dp"
         android:gravity="center"/>
-
+    
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -38,21 +38,25 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Welcome"
+                android:text="@string/welcome"
                 android:textSize="30sp"
                 android:textStyle="bold"
                 android:textColor="#363a43"
-                android:gravity="center"/>
+                android:gravity="center">
+
+            </TextView>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Please, enter your name"
+                android:text="@string/please_enter_your_name"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:textColor="#788089"
                 android:layout_marginTop="16dp"
-                android:gravity="center"/>
+                android:gravity="center">
+
+            </TextView>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -63,23 +67,26 @@
                 <androidx.appcompat.widget.AppCompatEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="e.g. John"
+                    android:hint="@string/e_g_john"
                     android:inputType="textCapWords"
                     android:textColor="#363a43"
-                    android:textColorHint="#7a8089" />
+                    android:textColorHint="#7a8089">
+
+                </androidx.appcompat.widget.AppCompatEditText>
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@color/design_default_color_primary"
-                android:text="Start"
+                android:layout_marginTop="16dp"
+                android:text="@string/start"
                 android:textColor="@color/white"
                 android:textSize="20sp">
             </Button>
 
         </LinearLayout>
+
     </com.google.android.material.card.MaterialCardView>
 
 </LinearLayout>
