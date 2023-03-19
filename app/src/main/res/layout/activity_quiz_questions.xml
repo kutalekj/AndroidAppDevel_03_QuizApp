@@ -21,7 +21,7 @@
             android:layout_margin="10dp"
             android:gravity="center"
             android:textSize="22sp"
-            android:textColor="363a43"
+            android:textColor="#363a43"
             tools:text="What country does this flag belong to?">
             <!-- Text only for the Designer - not displayed to a user-->
 
@@ -70,6 +70,71 @@
             </TextView>
 
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_option_one"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/default_option_border_bg"
+            android:gravity="center"
+            android:padding="15sp"
+            android:textColor="#7a8089"
+            android:textSize="18sp"
+            tools:text="Apple">
+        </TextView>
+
+        <TextView
+            android:id="@+id/tv_option_two"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/default_option_border_bg"
+            android:gravity="center"
+            android:padding="15sp"
+            android:textColor="#7a8089"
+            android:textSize="18sp"
+            tools:text="Apple">
+        </TextView>
+
+        <TextView
+            android:id="@+id/tv_option_three"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/default_option_border_bg"
+            android:gravity="center"
+            android:padding="15sp"
+            android:textColor="#7a8089"
+            android:textSize="18sp"
+            tools:text="Apple">
+        </TextView>
+
+        <TextView
+            android:id="@+id/tv_option_four"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/default_option_border_bg"
+            android:gravity="center"
+            android:padding="15sp"
+            android:textColor="#7a8089"
+            android:textSize="18sp"
+            tools:text="Apple">
+        </TextView>
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@color/design_default_color_primary"
+            android:text="@string/submit"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold">
+
+        </Button>
 
     </LinearLayout>
 
