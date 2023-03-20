@@ -10,9 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar">
         <activity
-            android:name=".QuizQuestionsActivity"
+            android:name=".ResultActivity"
             android:exported="false" />
-        <!-- No action bar -->
+        <activity
+            android:name=".QuizQuestionsActivity"
+            android:exported="false" /> <!-- No action bar -->
         <activity
             android:name=".MainActivity"
             android:exported="true"

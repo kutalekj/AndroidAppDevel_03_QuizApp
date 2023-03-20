@@ -6,4 +6,9 @@
     <string name="start">Start</string>
     <string name="quiz_image">Quiz Image</string>
     <string name="submit">SUBMIT</string>
+    <string name="result">Result</string>
+    <string name="trophyImage">trophyImage</string>
+    <string name="hey_congratulations">Hey, Congratulations!</string>
+    <string name="your_score_is_0_out_of_9">Your Score is 0 out of 9.</string>
+    <string name="finish">FINISH</string>
 </resources>
