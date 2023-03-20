@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import org.w3c.dom.Text
 
@@ -60,6 +61,8 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun setQuestion() {
+        defaultOptionsView()
+
         val question: Question = mQuestionsList!![mCurrentPosition - 1]
 
         progressBar?.progress = mCurrentPosition
@@ -75,8 +78,7 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
 
         if (mCurrentPosition == mQuestionsList!!.size) {
             btnSubmit?.text = "FINISH"
-        }
-        else {
+        } else {
             btnSubmit?.text = "SUBMIT"
         }
     }
@@ -84,20 +86,20 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
     private fun defaultOptionsView() {
         val options = ArrayList<TextView>()
 
-        tvOptionOne?.let{
+        tvOptionOne?.let {
             options.add(0, it)
         }
-        tvOptionOne?.let{
+        tvOptionTwo?.let {
             options.add(1, it)
         }
-        tvOptionOne?.let{
+        tvOptionThree?.let {
             options.add(2, it)
         }
-        tvOptionOne?.let{
+        tvOptionFour?.let {
             options.add(3, it)
         }
 
-        for(option in options) {
+        for (option in options) {
             option.setTextColor(Color.parseColor("#7a8089"))
             option.typeface = Typeface.DEFAULT
             option.background = ContextCompat.getDrawable(
@@ -127,27 +129,86 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
         // Define what should happen each time an item is selected
         when (view?.id) {
             R.id.tv_option_one -> {
-                tvOptionOne?.let{
+                tvOptionOne?.let {
                     selectedOptionView(it, 1)
                 }
             }
             R.id.tv_option_two -> {
-                tvOptionTwo?.let{
+                tvOptionTwo?.let {
                     selectedOptionView(it, 2)
                 }
             }
             R.id.tv_option_three -> {
-                tvOptionThree?.let{
+                tvOptionThree?.let {
                     selectedOptionView(it, 3)
                 }
             }
             R.id.tv_option_four -> {
-                tvOptionFour?.let{
+                tvOptionFour?.let {
                     selectedOptionView(it, 4)
                 }
             }
             R.id.btn_submit -> {
-                // TODO "Implement btn_submit"
+                // Go to next question if SUBMIT and noting selected
+                if (mSelectedOptionPosition == 0) {
+                    mCurrentPosition++
+
+                    when {
+                        mCurrentPosition <= mQuestionsList!!.size -> {
+                            setQuestion()
+                        }
+                        else -> {
+                            Toast.makeText(this, "You made it to the end!", Toast.LENGTH_LONG)
+                                .show()
+                        }
+                    }
+                }
+                // Evaluate question answer
+                else {
+                    val question = mQuestionsList?.get(mCurrentPosition - 1)
+
+                    // Wrong answer
+                    if (question!!.correctAnswer != mSelectedOptionPosition) {
+                        answerView(mSelectedOptionPosition, R.drawable.wrong_option_border_bg)
+                    }
+
+                    // Highlight correct answer
+                    answerView(question.correctAnswer, R.drawable.correct_option_border_bg)
+
+                    // Check if there are some questions remaining
+                    if (mCurrentPosition == mQuestionsList!!.size) {
+                        btnSubmit?.text = "FINISH"
+                    } else {
+                        btnSubmit?.text = "GO TO NEXT QUESTION"
+                    }
+
+                    mSelectedOptionPosition = 0
+                }
+            }
+        }
+    }
+
+    private fun answerView(answer: Int, drawableView: Int) {
+        when (answer) {
+            1 -> {
+                tvOptionOne?.background = ContextCompat.getDrawable(
+                    this, drawableView
+                )
+            }
+            2 -> {
+                tvOptionTwo?.background = ContextCompat.getDrawable(
+                    this, drawableView
+                )
+            }
+            3 -> {
+                tvOptionThree?.background = ContextCompat.getDrawable(
+                    this, drawableView
+                )
+            }
+            4 -> {
+                tvOptionFour?.background = ContextCompat.getDrawable(
+                    this, drawableView
+                )
             }
         }
     }
