@@ -24,8 +24,11 @@ class MainActivity : AppCompatActivity() {
             else {
                 // Move from this activity to the "Questions" activity
                 val intent = Intent(this, QuizQuestionsActivity::class.java)
-                startActivity(intent)
 
+                // Send data from one activity to another
+                intent.putExtra(Constants.USER_NAME, etName.text.toString())
+
+                startActivity(intent)
                 finish()
             }
         }
